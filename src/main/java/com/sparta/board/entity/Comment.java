@@ -30,9 +30,6 @@ public class Comment extends Timestamped {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.REMOVE)
-    private List<Likes> likesList = new ArrayList<>();
-
     @Column
     private Long parentCommentId;
 

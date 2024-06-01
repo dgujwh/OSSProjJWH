@@ -14,7 +14,6 @@ public class CommentResponseDto {
     private String username;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private Integer likeCount;
     private List<CommentResponseDto> childCommentList;
 
     @Builder
@@ -24,7 +23,6 @@ public class CommentResponseDto {
         this.username = entity.getUser().getUsername();
         this.createdAt = entity.getCreatedAt();
         this.modifiedAt = entity.getModifiedAt();
-        this.likeCount = (int) entity.getLikesList().stream().count();
         this.childCommentList = entity.getChildCommentList().stream().map(CommentResponseDto::from).toList();
     }
 
